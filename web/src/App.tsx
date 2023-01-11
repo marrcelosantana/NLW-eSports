@@ -136,7 +136,7 @@ function App() {
 
               <div className="mt-2 flex gap-2 text-sm">
                 <Input type="checkbox" />
-                Costume me conectar no chat de voz
+                Costumo me conectar no chat de voz
               </div>
 
               <footer className="mt-4 flex justify-end gap-4">
