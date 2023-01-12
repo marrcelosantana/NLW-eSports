@@ -3,24 +3,15 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
   ImageBackground,
-  ImageSourcePropType,
   Text,
 } from "react-native";
+import { Game } from "../../models/Game";
 import { THEME } from "../../theme";
 
 import { styles } from "./styles";
 
-export interface GameCardProps {
-  id: string;
-  title: string;
-  _count: {
-    ads: number;
-  };
-  bannerUrl: string;
-}
-
 interface Props extends TouchableOpacityProps {
-  data: GameCardProps;
+  data: Game;
 }
 
 export function Gamecard({ data, ...rest }: Props) {
