@@ -1,4 +1,5 @@
 import { useEffect, useState, FormEvent } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
 import * as Dialog from "@radix-ui/react-dialog";
@@ -9,7 +10,12 @@ import Input from "./Form/Input";
 import { Game } from "../models/Game";
 import { Check, GameController } from "phosphor-react";
 
-export function CreateAdModal() {
+interface ModalProps {
+  setOpen: (open: boolean) => void;
+  loadGames: () => void;
+}
+
+export function CreateAdModal({ setOpen, loadGames }: ModalProps) {
   const [games, setGames] = useState<Game[]>([]);
   const [weekDays, setWeekDays] = useState<string[]>([]);
   const [useVoiceChannel, setUseVoiceChannel] = useState(false);
@@ -25,10 +31,7 @@ export function CreateAdModal() {
 
     const formData = new FormData(event.target as HTMLFormElement);
     const data = Object.fromEntries(formData);
-
-    if (!data.name) {
-      return;
-    }
+    const wait = () => new Promise((resolve) => setTimeout(resolve, 1000));
 
     try {
       await axios.post(`http://localhost:3333/games/${data.game}/ads`, {
@@ -40,14 +43,17 @@ export function CreateAdModal() {
         hourEnd: data.hourEnd,
         useVoiceChannel: useVoiceChannel,
       });
-      alert("Anúncio criado com sucesso!!");
+      toast.success("Anúncio criado com sucesso!!!");
+      wait().then(() => setOpen(false));
+      loadGames();
     } catch (error) {
-      alert("Erro ao criar anúncio");
+      toast.error("Erro ao criar anúncio");
     }
   }
 
   return (
     <Dialog.Portal>
+      <Toaster position="top-center" />
       <Dialog.Overlay className="bg-black/80 inset-0 fixed" />
       <Dialog.Content
         className="fixed bg-[#2A2634] py-8 px-10 text-white 
@@ -217,7 +223,6 @@ export function CreateAdModal() {
             <Checkbox.Root
               checked={useVoiceChannel}
               className="w-6 h-6 p-1 rounded bg-zinc-900"
-              required
               onCheckedChange={(checked) => {
                 if (checked === true) {
                   setUseVoiceChannel(true);

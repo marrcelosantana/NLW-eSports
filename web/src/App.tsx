@@ -15,11 +15,16 @@ import "./styles/main.css";
 
 function App() {
   const [games, setGames] = useState<Game[]>([]);
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
+  function loadGames() {
     axios("http://localhost:3333/games").then((response) => {
       setGames(response.data);
     });
+  }
+
+  useEffect(() => {
+    loadGames();
   }, []);
 
   return (
@@ -38,9 +43,9 @@ function App() {
           />
         ))}
       </div>
-      <Dialog.Root>
+      <Dialog.Root open={open} onOpenChange={setOpen}>
         <CreateAdBanner />
-        <CreateAdModal />
+        <CreateAdModal setOpen={setOpen} loadGames={loadGames} />
       </Dialog.Root>
     </div>
   );
