@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Background } from "../../components/Background";
 import { Heading } from "../../components/Heading";
 import { DuoCard } from "../../components/DuoCard";
+import { DuoMatch } from "../../components/DuoMatch";
 
 import logoImg from "../../assets/logo-nlw-esports.png";
 import { Entypo } from "@expo/vector-icons";
@@ -77,6 +78,7 @@ export function Game() {
             </Text>
           )}
         />
+        {/* <DuoMatch visible={true} discord="marcelo4444" /> */}
       </SafeAreaView>
     </Background>
   );
