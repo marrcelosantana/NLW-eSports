@@ -78,7 +78,7 @@ export function Game() {
             </Text>
           )}
         />
-        {/* <DuoMatch visible={true} discord="marcelo4444" /> */}
+        <DuoMatch visible={true} discord="marcelo4444" />
       </SafeAreaView>
     </Background>
   );
