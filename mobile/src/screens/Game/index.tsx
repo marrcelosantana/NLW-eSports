@@ -64,7 +64,7 @@ export function Game() {
         <Image
           source={{ uri: game.bannerUrl }}
           style={styles.cover}
-          resizeMode="cover"
+          resizeMode="contain"
         />
         <Heading title={game.title} subtitle="Conecte-se e comece a jogar!" />
         <FlatList
