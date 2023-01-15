@@ -8,4 +8,4 @@ Home           |  Modal de Adicionar Anúncio
 
 Home            |  Anúncios          | Modal           
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src= "./prints/Mobile/HomeMob.PNG">  |  <img src= "./prints/Mobile/Games.PNG">  | <img src="./prints/Web/Modal.jpg">
+<img src= "./prints/Mobile/HomeMob.PNG">  |  <img src= "./prints/Mobile/Games.PNG">  | <img src="./prints/Mobile/ModalMob.PNG">
