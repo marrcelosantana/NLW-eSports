@@ -38,6 +38,16 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 4,
     marginBottom: 32,
+    marginTop: 10,
+  },
+
+  discordButtonContent: {
+    display: "flex",
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 10,
   },
 
   discord: {
